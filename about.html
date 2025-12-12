@@ -21,7 +21,7 @@
     <div class="container">
         <h2>About UTD Pixel</h2>
         <p>UTD Pixel is a student project showcasing visualizations, maps, and interactive pixel art graphics for the UTD community.</p>
-        <p>This website uses a pixelated shooting star animation, where small white squares fall diagonally and twinkle like retro game stars.</p>
+        <p>This website uses a pixelated shooting star animation, where small white squares fall diagonally and twinkle like retro game stars against a gray-to-black night sky.</p>
     </div>
 
     <footer>
@@ -29,7 +29,6 @@
     </footer>
 
     <script>
-        // Same fully working shooting star animation
         const canvas = document.getElementById('starCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -58,8 +57,29 @@
             stars.push(createStar());
         }
 
+        // Optional click debug star
+        canvas.addEventListener('click', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            stars.push({
+                x: x,
+                y: y,
+                size: Math.floor(Math.random() * 4) + 2,
+                speed: 0,
+                alpha: 1,
+                alphaChange: 0.03
+            });
+        });
+
         function drawStars() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#555'); // gray top
+            gradient.addColorStop(1, '#000'); // black bottom
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
             stars.forEach(star => {
                 ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
                 ctx.fillRect(star.x, star.y, star.size, star.size);
@@ -84,3 +104,4 @@
     </script>
 </body>
 </html>
+

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UTD Pixel - Debug Lines</title>
+    <title>UTD Pixel - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,7 +10,7 @@
 
     <header>
         <h1>UTD Pixel</h1>
-        <p>Click anywhere to draw a white line!</p>
+        <p>Welcome to UTD Pixel's pixel art website!</p>
     </header>
 
     <nav>
@@ -19,8 +19,8 @@
     </nav>
 
     <div class="container">
-        <h2>Debug Mode</h2>
-        <p>Click and see a line drawn from the previous click to the current click.</p>
+        <h2>Home</h2>
+        <p>White pixel stars fall diagonally across the page, twinkling like retro pixel art shooting stars!</p>
     </div>
 
     <footer>
@@ -38,34 +38,72 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        let lastX = null;
-        let lastY = null;
+        const stars = [];
+        const numStars = 120;
 
+        function createStar() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.floor(Math.random() * 4) + 2,
+                speed: Math.random() * 2 + 1,
+                alpha: Math.random(),
+                alphaChange: (Math.random() * 0.03) + 0.02
+            };
+        }
+
+        for (let i = 0; i < numStars; i++) {
+            stars.push(createStar());
+        }
+
+        // Optional: click to draw debugging star
         canvas.addEventListener('click', (event) => {
             const rect = canvas.getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
 
-            if (lastX !== null && lastY !== null) {
-                ctx.strokeStyle = 'white';
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(lastX, lastY);
-                ctx.lineTo(x, y);
-                ctx.stroke();
-            }
-
-            lastX = x;
-            lastY = y;
+            stars.push({
+                x: x,
+                y: y,
+                size: Math.floor(Math.random() * 4) + 2,
+                speed: 0, // static
+                alpha: 1,
+                alphaChange: 0.03
+            });
         });
 
-        /*
-        // Original star animation (commented out for debugging)
-        const stars = [];
-        function createStar() { ... }
-        function drawStars() { ... }
+        function drawStars() {
+            // Draw gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#555'); // gray top
+            gradient.addColorStop(1, '#000'); // black bottom
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw stars
+            stars.forEach(star => {
+                ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
+                ctx.fillRect(star.x, star.y, star.size, star.size);
+
+                star.x += star.speed;
+                star.y += star.speed;
+
+                // twinkle
+                star.alpha += star.alphaChange;
+                if (star.alpha >= 1 || star.alpha <= 0) star.alphaChange = -star.alphaChange;
+
+                // reset when out of view
+                if (star.x > canvas.width || star.y > canvas.height) {
+                    star.x = 0;
+                    star.y = Math.random() * canvas.height / 2;
+                    star.alpha = Math.random();
+                }
+            });
+
+            requestAnimationFrame(drawStars);
+        }
+
         drawStars();
-        */
     </script>
 </body>
 </html>
