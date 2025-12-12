@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UTD Pixel - Home</title>
+    <title>UTD Pixel - Debug Stars</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,7 +10,7 @@
 
     <header>
         <h1>UTD Pixel</h1>
-        <p>Welcome to UTD Pixel's pixel art website!</p>
+        <p>Click anywhere to create a twinkling star!</p>
     </header>
 
     <nav>
@@ -19,8 +19,8 @@
     </nav>
 
     <div class="container">
-        <h2>Home</h2>
-        <p>Welcome! White pixel stars fall diagonally across the page, twinkling like retro pixel art shooting stars.</p>
+        <h2>Debug Mode</h2>
+        <p>Click on the canvas to see a white pixel appear and twinkle at your mouse position.</p>
     </div>
 
     <footer>
@@ -28,35 +28,33 @@
     </footer>
 
     <script>
-        // Pixelated shooting star animation
         const canvas = document.getElementById('starCanvas');
         const ctx = canvas.getContext('2d');
-
-        let stars = [];
-        const numStars = 120;
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        function createStar() {
-            return {
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.floor(Math.random() * 3) + 2,
-                speed: Math.random() * 2 + 1,
-                alpha: Math.random(),
-                alphaChange: (Math.random() * 0.02) + 0.01
-            };
-        }
+        const stars = [];
 
-        for (let i = 0; i < numStars; i++) {
-            stars.push(createStar());
-        }
+        // Create star at mouse click
+        canvas.addEventListener('click', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            stars.push({
+                x: x,
+                y: y,
+                size: Math.floor(Math.random() * 4) + 2,
+                speed: 0,               // static star for debugging
+                alpha: 1,
+                alphaChange: 0.02
+            });
+        });
 
         function drawStars() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -65,21 +63,9 @@
                 ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
                 ctx.fillRect(star.x, star.y, star.size, star.size);
 
-                star.x += star.speed;
-                star.y += star.speed;
-
                 // Twinkle effect
                 star.alpha += star.alphaChange;
-                if (star.alpha >= 1 || star.alpha <= 0) {
-                    star.alphaChange = -star.alphaChange;
-                }
-
-                // Reset star when it moves out of view
-                if (star.x > canvas.width || star.y > canvas.height) {
-                    star.x = 0;
-                    star.y = Math.random() * canvas.height / 2;
-                    star.alpha = Math.random();
-                }
+                if (star.alpha >= 1 || star.alpha <= 0) star.alphaChange = -star.alphaChange;
             });
 
             requestAnimationFrame(drawStars);
