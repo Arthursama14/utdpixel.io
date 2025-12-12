@@ -29,29 +29,28 @@
     </footer>
 
     <script>
-        // Pixelated shooting star animation (same as index.html)
+        // Same fully working shooting star animation
         const canvas = document.getElementById('starCanvas');
         const ctx = canvas.getContext('2d');
-
-        let stars = [];
-        const numStars = 120;
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
+
+        const stars = [];
+        const numStars = 120;
 
         function createStar() {
             return {
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.floor(Math.random() * 3) + 2,
+                size: Math.floor(Math.random() * 4) + 2,
                 speed: Math.random() * 2 + 1,
                 alpha: Math.random(),
-                alphaChange: (Math.random() * 0.02) + 0.01
+                alphaChange: (Math.random() * 0.03) + 0.02
             };
         }
 
@@ -61,7 +60,6 @@
 
         function drawStars() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
             stars.forEach(star => {
                 ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
                 ctx.fillRect(star.x, star.y, star.size, star.size);
@@ -70,9 +68,7 @@
                 star.y += star.speed;
 
                 star.alpha += star.alphaChange;
-                if (star.alpha >= 1 || star.alpha <= 0) {
-                    star.alphaChange = -star.alphaChange;
-                }
+                if (star.alpha >= 1 || star.alpha <= 0) star.alphaChange = -star.alphaChange;
 
                 if (star.x > canvas.width || star.y > canvas.height) {
                     star.x = 0;
