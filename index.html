@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UTD Pixel - Debug Stars</title>
+    <title>UTD Pixel - Debug Lines</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,7 +10,7 @@
 
     <header>
         <h1>UTD Pixel</h1>
-        <p>Click anywhere to create a twinkling star!</p>
+        <p>Click anywhere to draw a white line!</p>
     </header>
 
     <nav>
@@ -20,7 +20,7 @@
 
     <div class="container">
         <h2>Debug Mode</h2>
-        <p>Click on the canvas to see a white pixel appear and twinkle at your mouse position.</p>
+        <p>Click and see a line drawn from the previous click to the current click.</p>
     </div>
 
     <footer>
@@ -38,40 +38,35 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        const stars = [];
+        let lastX = null;
+        let lastY = null;
 
-        // Create star at mouse click
         canvas.addEventListener('click', (event) => {
             const rect = canvas.getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
 
-            stars.push({
-                x: x,
-                y: y,
-                size: Math.floor(Math.random() * 4) + 2,
-                speed: 0,               // static star for debugging
-                alpha: 1,
-                alphaChange: 0.02
-            });
+            if (lastX !== null && lastY !== null) {
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            }
+
+            lastX = x;
+            lastY = y;
         });
 
-        function drawStars() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            stars.forEach(star => {
-                ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-                ctx.fillRect(star.x, star.y, star.size, star.size);
-
-                // Twinkle effect
-                star.alpha += star.alphaChange;
-                if (star.alpha >= 1 || star.alpha <= 0) star.alphaChange = -star.alphaChange;
-            });
-
-            requestAnimationFrame(drawStars);
-        }
-
+        /*
+        // Original star animation (commented out for debugging)
+        const stars = [];
+        function createStar() { ... }
+        function drawStars() { ... }
         drawStars();
+        */
     </script>
 </body>
 </html>
+
