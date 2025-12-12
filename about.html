@@ -2,106 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UTD Pixel - About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – UTD Pixel Sky</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="starCanvas"></canvas>
 
-    <header>
-        <h1>UTD Pixel</h1>
-        <p>Learn more about this pixel art project!</p>
-    </header>
+    <div class="main-container">
+        <h1 class="title">About This Project</h1>
+        <p class="subtitle">
+            This is a pixel-art inspired star animation hosted on GitHub Pages.
+        </p>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-    </nav>
+        <p class="body-text">
+            The stars move diagonally using a wide spawn field so the animation feels
+            endless and avoids diagonal banding. The background uses a smooth gray-to-black
+            gradient to simulate a night sky.
+        </p>
 
-    <div class="container">
-        <h2>About UTD Pixel</h2>
-        <p>UTD Pixel is a student project showcasing visualizations, maps, and interactive pixel art graphics for the UTD community.</p>
-        <p>This website uses a pixelated shooting star animation, where small white squares fall diagonally and twinkle like retro game stars against a gray-to-black night sky.</p>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
     </div>
 
-    <footer>
-        &copy; 2025 Arthur Braxton | UTD Pixel
-    </footer>
-
-    <script>
-        const canvas = document.getElementById('starCanvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const stars = [];
-        const numStars = 120;
-
-        function createStar() {
-            return {
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.floor(Math.random() * 4) + 2,
-                speed: Math.random() * 2 + 1,
-                alpha: Math.random(),
-                alphaChange: (Math.random() * 0.03) + 0.02
-            };
-        }
-
-        for (let i = 0; i < numStars; i++) {
-            stars.push(createStar());
-        }
-
-        // Optional click debug star
-        canvas.addEventListener('click', (event) => {
-            const rect = canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-
-            stars.push({
-                x: x,
-                y: y,
-                size: Math.floor(Math.random() * 4) + 2,
-                speed: 0,
-                alpha: 1,
-                alphaChange: 0.03
-            });
-        });
-
-        function drawStars() {
-            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-            gradient.addColorStop(0, '#555'); // gray top
-            gradient.addColorStop(1, '#000'); // black bottom
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            stars.forEach(star => {
-                ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-                ctx.fillRect(star.x, star.y, star.size, star.size);
-
-                star.x += star.speed;
-                star.y += star.speed;
-
-                star.alpha += star.alphaChange;
-                if (star.alpha >= 1 || star.alpha <= 0) star.alphaChange = -star.alphaChange;
-
-                if (star.x > canvas.width || star.y > canvas.height) {
-                    star.x = 0;
-                    star.y = Math.random() * canvas.height / 2;
-                    star.alpha = Math.random();
-                }
-            });
-
-            requestAnimationFrame(drawStars);
-        }
-
-        drawStars();
-    </script>
+    <script src="stars.js"></script>
 </body>
 </html>
-
