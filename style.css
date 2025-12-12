@@ -6,7 +6,7 @@ body, html {
     height: 100%;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    background-color: #111; /* dark background */
+    background-color: #000; /* fully black background */
     color: white;
 }
 
