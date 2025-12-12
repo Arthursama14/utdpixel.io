@@ -4,68 +4,13 @@
     <meta charset="UTF-8">
     <title>UTD Pixel - Home</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Full-screen canvas for pixel stars */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #111; /* Dark background for contrast */
-        }
-
-        canvas#starCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1; /* behind everything */
-        }
-
-        header {
-            text-align: center;
-            color: white;
-            padding: 20px;
-        }
-
-        nav {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(0,0,0,0.6); /* semi-transparent */
-            color: white;
-            border-radius: 8px;
-        }
-
-        footer {
-            text-align: center;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
     <canvas id="starCanvas"></canvas>
 
     <header>
         <h1>UTD Pixel</h1>
-        <p>Welcome to UTD Pixel's website!</p>
+        <p>Welcome to UTD Pixel's pixel art website!</p>
     </header>
 
     <nav>
@@ -75,7 +20,7 @@
 
     <div class="container">
         <h2>Home</h2>
-        <p>This is the homepage of <strong>UTD Pixel</strong>. Here, white pixel stars fall from the top left to the bottom right, like shooting stars!</p>
+        <p>Welcome! White pixel stars fall diagonally across the page, twinkling like retro pixel art shooting stars.</p>
     </div>
 
     <footer>
@@ -83,52 +28,64 @@
     </footer>
 
     <script>
-        // Shooting-star pixel animation
+        // Pixelated shooting star animation
         const canvas = document.getElementById('starCanvas');
         const ctx = canvas.getContext('2d');
 
         let stars = [];
-        const numStars = 80; // number of falling squares
+        const numStars = 120;
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
+
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        // Create stars
-        for (let i = 0; i < numStars; i++) {
-            stars.push({
+        function createStar() {
+            return {
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: 2 + Math.random() * 3,
-                speed: 1 + Math.random() * 2
-            });
+                size: Math.floor(Math.random() * 3) + 2,
+                speed: Math.random() * 2 + 1,
+                alpha: Math.random(),
+                alphaChange: (Math.random() * 0.02) + 0.01
+            };
         }
 
-        function draw() {
+        for (let i = 0; i < numStars; i++) {
+            stars.push(createStar());
+        }
+
+        function drawStars() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = 'white';
             stars.forEach(star => {
+                ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
                 ctx.fillRect(star.x, star.y, star.size, star.size);
 
-                // Move diagonally
                 star.x += star.speed;
                 star.y += star.speed;
+
+                // Twinkle effect
+                star.alpha += star.alphaChange;
+                if (star.alpha >= 1 || star.alpha <= 0) {
+                    star.alphaChange = -star.alphaChange;
+                }
 
                 // Reset star when it moves out of view
                 if (star.x > canvas.width || star.y > canvas.height) {
                     star.x = 0;
-                    star.y = Math.random() * canvas.height / 2; // start near top
+                    star.y = Math.random() * canvas.height / 2;
+                    star.alpha = Math.random();
                 }
             });
 
-            requestAnimationFrame(draw);
+            requestAnimationFrame(drawStars);
         }
 
-        draw();
+        drawStars();
     </script>
 </body>
 </html>
