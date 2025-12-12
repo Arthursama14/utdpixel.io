@@ -1,10 +1,9 @@
 html, body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    height: 100%;
-    background: black;
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
+    background: black;
 }
 
 #starCanvas {
@@ -16,43 +15,50 @@ html, body {
     z-index: -1;
 }
 
-/* UI Container */
-.main-container {
-    position: relative;
-    width: 100%;
+header {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
+    color: white;
 }
 
-.title {
-    color: white;
+header h1 {
     font-size: 2.8rem;
     margin-bottom: 5px;
 }
 
-.subtitle {
-    color: #cccccc;
-    font-size: 1.2rem;
-    margin-top: 0px;
-    margin-bottom: 20px;
+header p {
+    color: #ccc;
 }
 
-.body-text {
-    color: #dddddd;
-    width: 70%;
-    margin: 20px auto;
-    font-size: 1.1rem;
-    line-height: 1.6rem;
+nav {
+    text-align: center;
+    margin: 20px 0;
 }
 
-/* Simple Nav */
 nav a {
-    color: #56ccff;
-    font-size: 1.1rem;
-    margin: 0 12px;
+    color: #66ccff;
+    margin: 0 15px;
     text-decoration: none;
+    font-size: 1.2rem;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    color: #ddd;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    margin: 40px 0;
+    color: #777;
+    font-size: 0.9rem;
+}
+

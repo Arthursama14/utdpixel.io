@@ -2,30 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About – UTD Pixel Sky</title>
+    <title>UTD Pixel - About</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="starCanvas"></canvas>
 
-    <div class="main-container">
-        <h1 class="title">About This Project</h1>
-        <p class="subtitle">
-            This is a pixel-art inspired star animation hosted on GitHub Pages.
-        </p>
+    <header>
+        <h1>About UTD Pixel</h1>
+        <p>Learn how this pixel starfield works!</p>
+    </header>
 
-        <p class="body-text">
-            The stars move diagonally using a wide spawn field so the animation feels
-            endless and avoids diagonal banding. The background uses a smooth gray-to-black
-            gradient to simulate a night sky.
-        </p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+    </nav>
 
-        <nav>
-            <a href="index.html">Home</a>
-        </nav>
+    <div class="container">
+        <h2>About This Project</h2>
+        <p>This pixel starfield uses a wide spawn zone, diagonal movement, twinkling alpha, and a gradient gray-to-black sky.</p>
+        <p>The effect recreates retro 2D pixel shooting stars.</p>
     </div>
 
+    <footer>
+        &copy; 2025 Arthur Braxton | UTD Pixel
+    </footer>
+
+    <!-- External star animation script -->
     <script src="stars.js"></script>
 </body>
 </html>
