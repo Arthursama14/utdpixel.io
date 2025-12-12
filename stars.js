@@ -8,41 +8,39 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// ----- Gradient Sky Background -----
+// ----- Gradient Background -----
 function drawGradientSky() {
     const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    grad.addColorStop(0, "#2a2a2a");   // top: gray
-    grad.addColorStop(1, "#000000");   // bottom: black
-
+    grad.addColorStop(0, "#555"); // gray top
+    grad.addColorStop(1, "#000"); // black bottom
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-// ----- Starfield Setup -----
+// ----- Starfield -----
 const stars = [];
 const STAR_COUNT = 250;
 
 function createStar() {
-    const extraWidth = canvas.width * 2; // ★ DOUBLE WIDTH SPAWN ZONE ★
+    const extraWidth = canvas.width * 2;
 
     return {
-        x: Math.random() * extraWidth - canvas.width, 
-        y: Math.random() * -canvas.height, 
-        size: Math.random() * 2 + 1,
+        x: Math.random() * extraWidth - canvas.width,
+        y: Math.random() * -canvas.height,
+        size: Math.floor(Math.random() * 3) + 2,
         speed: Math.random() * 2 + 1,
         alpha: Math.random(),
-        alphaDir: Math.random() < 0.5 ? -0.01 : 0.01
+        alphaDir: Math.random() < 0.5 ? -0.02 : 0.02
     };
 }
 
-// Initial stars
 for (let i = 0; i < STAR_COUNT; i++) {
     stars.push(createStar());
 }
 
 function updateStars() {
     for (let s of stars) {
-        s.x += s.speed * 0.7;   // diagonal movement
+        s.x += s.speed * 0.7;
         s.y += s.speed;
 
         s.alpha += s.alphaDir;
@@ -50,10 +48,9 @@ function updateStars() {
             s.alphaDir *= -1;
         }
 
-        // When star leaves the screen → respawn far left/top again
         if (s.y > canvas.height + 50 || s.x > canvas.width + 50) {
-            const i = stars.indexOf(s);
-            stars[i] = createStar();
+            const idx = stars.indexOf(s);
+            stars[idx] = createStar();
         }
     }
 }
@@ -73,3 +70,4 @@ function animate() {
 }
 
 animate();
+
