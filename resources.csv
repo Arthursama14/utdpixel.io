@@ -1,0 +1,33 @@
+﻿resource,category,Starship,img,Room,lat,lon,mon_times,tue_times,wed_times,thur_times,fri_times,sat_times,sun_times,appoitment,web,outside
+Rec Center West,exercise,no,,,,,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
+Student Counseling Center,self-care,no,,,,,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,closed,closed,yes,https://counseling.utdallas.edu/appointments/,no
+UTD Activity Center,exercise,no,,,,,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
+Phase 2 Volley Ball Court,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Phase 2 Basketball Court,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Phase 1 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Phase 2 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Phase 3 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Gaming Center,socialize,no,,,,,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,12:00 PM - 11:00 PM,12:00 PM - 11:00 PM,,https://esports.utdallas.edu/gaming-center/,no
+Student Union,socialize,no,,,,,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,9:00 AM - 11:00 PM,9:00 AM - 11:00 PM,yes,https://union.utdallas.edu/,no
+Library Study Rooms,academics,no,,,,,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,11:00 AM - 8:00 PM,11:00 AM - 8:00 PM,yes,https://libcal.utdallas.edu/,no
+Career Center,career,no,,,,,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,closed,closed,yes,https://career.utdallas.edu/contact/,no
+Comet Cents,career,no,,,,,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,closed,closed,yes,https://cometcents.utdallas.edu/,no
+Taco Bell,food,yes,https://toppng.com/uploads/preview/taco-bell-new-logo-vector-11573942814qvijjllqow.png,,,,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,no,https://services.utdallas.edu/dining/,no
+Comet Pi,food,no,,,,,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,3:00  PM - 10:00 PM,3:00  PM - 10:00 PM,no,https://services.utdallas.edu/dining/,no
+Starbucks,food,yes,https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg,,,,8:00 AM - 9:00 PM,8:00 AM - 9:00 PM,8:00 AM - 9:00 PM,8:00 AM - 9:00 PM,8:00 AM - 9:00 PM,9:00 AM - 3:00 PM,9:00 AM - 3:00 PM,no,https://services.utdallas.edu/dining/,no
+"	Chick-Fil-A",food,no,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFnF-O--tKZgkcvZHyMxVXC-A2kky2zFdBMw&s,,,,8:00 AM - 6:00 PM,8:00 AM - 6:00 PM,8:00 AM - 6:00 PM,8:00 AM - 6:00 PM,8:00 AM - 5:00 PM,11:00 AM - 3:00 PM,11:00 AM - 3:00 PM,no,https://services.utdallas.edu/dining/,no
+Tea Co,food,no,,,,,10:00 AM - 5:00 PM,10:00 AM - 5:00 PM,10:00 AM - 5:00 PM,10:00 AM - 5:00 PM,closed,closed,closed,no,https://services.utdallas.edu/dining/,no
+Panda Express,food,yes,https://cdn.cookielaw.org/logos/fbcad385-5bbd-48ba-97d4-e5bcabcd10b9/67c1852a-0424-4c45-ae27-c587b2b01745/573a432a-97c1-4b6f-b44e-1911f400a20f/1200px-Panda_Express_logo.svg.png,,,,11:00 AM - 6:00 PM,11:00 AM - 6:00 PM,11:00 AM - 6:00 PM,11:00 AM - 6:00 PM,closed,closed,closed,no,https://services.utdallas.edu/dining/,no
+Einstein Bros Bagels,food,yes,https://play-lh.googleusercontent.com/ANUEXpM7iYUwwItg_46RBZ9CPrhHAFOHrviizj3Gi-40Jhk3PwxL26lgrPJp-eoGQw,,,,7:30 AM - 4:00 PM,7:30 AM - 4:00 PM,7:30 AM - 4:00 PM,7:30 AM - 4:00 PM,7:30 AM - 4:00 PM,closed,closed,no,https://services.utdallas.edu/dining/,no
+Dinning Hall West,food,no,,,,,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,10:30 AM - 7:30 PM,10:30 AM - 7:30 PM,no,https://services.utdallas.edu/dining/,no
+Food Truck Park,food,no,,,,,11:00 AM - 2:00 PM,11:00 AM - 2:00 PM,closed,closed,closed,closed,closed,no,https://services.utdallas.edu/dining/,yes
+The Market DHW,food,yes,,,,,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,no,,no
+The Market ESCW,food,no,,,,,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,closed,closed,no,,no
+The Market JSOM,food,no,,,,,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,closed,closed,no,,no
+The Market SU,food,yes,,,,,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,closed,closed,no,,no
+Moe's,food,yes,https://images.seeklogo.com/logo-png/45/1/moes-southwest-grill-logo-png_seeklogo-459036.png,,,,,,,,,,,no,,no
+Halal Shack,food,yes,https://cdn.prod.website-files.com/5efa207a59d29b5583d9972a/61f87c5a9c519662ee8fe065_logo-the-halal-shack.png,,,,,,,,,,,no,,no
+Fire House Subs,food,yes,https://spng.pngfind.com/pngs/s/404-4045624_firehouse-subs-firehouse-subs-logo-png-transparent-png.png,,,,,,,,,,,no,,no
+The Market DHW,food,yes,,,,,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,no,,no
+The Market ESCW,food,no,,,,,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,closed,closed,no,,no
+The Market JSOM,food,no,,,,,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,closed,closed,no,,no
