@@ -21,7 +21,7 @@ function parseTimeRange(rangeStr) {
         let [hours, minutes] = time.split(":").map(Number);
         if (meridiem.toLowerCase() === "pm" && hours !== 12) hours += 12;
         if (meridiem.toLowerCase() === "am" && hours === 12) hours = 0;
-        return hours * 60 + minutes; // minutes since midnight
+        return hours * 60 + minutes;
     };
 
     return [parse(parts[0]), parse(parts[1])];
@@ -30,7 +30,7 @@ function parseTimeRange(rangeStr) {
 // ---------------------- Create Dashboard ----------------------
 function createDashboard(data) {
     const grid = document.getElementById("grid");
-    grid.innerHTML = ""; // clear any previous content
+    grid.innerHTML = ""; // clear previous content
 
     const now = new Date();
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
@@ -50,14 +50,13 @@ function createDashboard(data) {
             const todayValue = res[dayMap[todayIndex]];
             const range = parseTimeRange(todayValue);
             if (!range) return false;
-
             const [start, end] = range;
             return start < end
                 ? currentMinutes >= start && currentMinutes <= end
                 : currentMinutes >= start || currentMinutes <= end;
         });
 
-        if (openResources.length === 0) continue; // skip category if no open resource
+        if (openResources.length === 0) continue; // skip empty categories
 
         // Create category section
         const section = document.createElement("div");
@@ -74,8 +73,27 @@ function createDashboard(data) {
         openResources.forEach(res => {
             const box = document.createElement("div");
             box.className = "resource-box";
-            box.textContent = res.resource;
-            box.title = res[dayMap[todayIndex]]; // tooltip shows time
+            box.title = res[dayMap[todayIndex]]; // hover shows hours
+
+            if (res.img) {
+                const img = document.createElement("img");
+                img.src = res.img;
+                img.alt = res.resource;
+                img.className = "resource-img";
+
+                if (res.web) {
+                    const link = document.createElement("a");
+                    link.href = res.web;
+                    link.target = "_blank";
+                    link.appendChild(img);
+                    box.appendChild(link);
+                } else {
+                    box.appendChild(img);
+                }
+            } else {
+                box.textContent = res.resource;
+            }
+
             sectionGrid.appendChild(box);
         });
 
@@ -83,3 +101,4 @@ function createDashboard(data) {
         grid.appendChild(section);
     }
 }
+
