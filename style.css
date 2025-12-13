@@ -1,18 +1,10 @@
-/* ========== Global Styles ========== */
+/* ---------------- Global ---------------- */
 html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
-    background: transparent; /* fallback if canvas fails */
-}
-
-/* ===== Background Layer ===== */
-#bg-layer {
-    position: fixed;
-    inset: 0;
-    background: black; /* deepest fallback */
-    z-index: -3;
+    background: black; /* fallback if canvas fails */
 }
 
 /* Canvas behind UI */
@@ -22,10 +14,17 @@ html, body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -2;
+    z-index: -1;
 }
 
-/* Header */
+/* UI wrapper above canvas */
+#ui {
+    position: relative;
+    z-index: 1;
+    background: rgba(0,0,0,1); /* solid black behind UI */
+}
+
+/* ---------------- Header ---------------- */
 header {
     text-align: center;
     padding: 40px 20px 10px;
@@ -42,7 +41,7 @@ header p {
     margin-top: 0;
 }
 
-/* Navigation */
+/* ---------------- Navigation ---------------- */
 nav {
     text-align: center;
     margin: 20px 0;
@@ -59,64 +58,137 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Container for tables */
+/* ---------------- Main Content ---------------- */
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 80%;
+    max-width: 900px;
     margin: 0 auto 40px;
     padding: 20px;
-}
-
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 15px; /* spacing between cells */
-}
-
-td {
-    background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
-    color: black;
-    padding: 15px;
-    border-radius: 15px; /* rounded corners */
-    vertical-align: top;
-    font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* subtle shadow */
-}
-
-/* Table headings */
-h3 {
-    margin-top: 0;
-    color: #333;
-}
-
-/* Special classes */
-.center {
-    text-align: center;
-}
-
-.name {
-    font-family: "Courier New", monospace;
-    font-size: 28px;
-    font-weight: bold;
-    font-style: italic;
-    color: green;
-}
-
-/* Images inside table cells */
-td img {
-    max-width: 100%;
+    color: #dddddd;
+    background: rgba(0, 0, 0, 0.35);
     border-radius: 10px;
 }
 
-/* Responsive for small screens */
-@media (max-width: 768px) {
-    table, tr, td {
-        display: block;
-        width: 100%;
-    }
+/* ---------------- Footer ---------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 0.9rem;
+}
 
-    td {
-        margin-bottom: 15px;
+/* ---------------- Live Timestamp ---------------- */
+#timestamp {
+    font-size: 0.9rem;
+    color: #66ccff;
+    text-align: center;
+    font-family: monospace;
+    margin-bottom: 10px;
+}
+
+/* ---------------- Dashboard Grid ---------------- */
+#grid {
+    margin-top: 20px;
+}
+
+/* Category section */
+.category-section {
+    margin-bottom: 30px;
+}
+
+/* Category title */
+.category-section h3 {
+    color: #66ccff;
+    margin-bottom: 10px;
+}
+
+/* Grid of resource boxes per category */
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Individual resource boxes - true squares */
+.resource-box {
+    width: 120px;      /* fixed width */
+    height: 120px;     /* fixed height to keep square */
+    background: #ffffff;
+    color: #000000;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+    cursor: default;
+    overflow: hidden;  /* clip image inside box */
+    transition: transform 0.2s, background 0.2s;
+}
+
+/* Hover effect */
+.resource-box:hover {
+    transform: scale(1.05);
+    background: #f0f0f0;
+}
+
+/* Image inside resource box */
+.resource-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ---------------- Responsive adjustments ---------------- */
+@media (max-width: 768px) {
+    .resource-box {
+        flex: 1 0 45%; /* 2 boxes per row on smaller screens */
+        height: auto;
+        aspect-ratio: 1 / 1; /* keep square */
     }
 }
+
+@media (max-width: 480px) {
+    .resource-box {
+        flex: 1 0 90%; /* 1 box per row on very small screens */
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+}
+/* Closing soon countdown */
+.countdown {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Less than 30 minutes remaining */
+.countdown.urgent {
+    color: #ff4d4d;
+    animation: pulse 1.2s infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0%   { transform: scale(1);   opacity: 1; }
+    50%  { transform: scale(1.05); opacity: 0.85; }
+    100% { transform: scale(1);   opacity: 1; }
+}
+
+/* Experience Builder Section */
+#experience {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background: black;
+}
+
+#experience iframe {
+    width: 100%;
+    height: 600px;   /* adjust as needed */
+    border: none;
+}
+
