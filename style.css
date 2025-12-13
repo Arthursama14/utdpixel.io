@@ -1,10 +1,10 @@
-/* Global */
+/* ---------------- Global ---------------- */
 html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
-    background: transparent; /* body transparent so stars show fully */
+    background: black; /* fallback if canvas fails */
 }
 
 /* Canvas behind UI */
@@ -17,14 +17,14 @@ html, body {
     z-index: -1;
 }
 
-/* UI wrapper with solid black behind header/nav/container/footer */
+/* UI wrapper above canvas */
 #ui {
-    background: rgba(0,0,0,1); /* full black */
     position: relative;
     z-index: 1;
+    background: rgba(0,0,0,1); /* solid black behind UI */
 }
 
-/* Header */
+/* ---------------- Header ---------------- */
 header {
     text-align: center;
     padding: 40px 20px 10px;
@@ -41,7 +41,7 @@ header p {
     margin-top: 0;
 }
 
-/* Navigation */
+/* ---------------- Navigation ---------------- */
 nav {
     text-align: center;
     margin: 20px 0;
@@ -58,7 +58,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Main Content */
+/* ---------------- Main Content ---------------- */
 .container {
     width: 80%;
     max-width: 900px;
@@ -69,7 +69,7 @@ nav a:hover {
     border-radius: 10px;
 }
 
-/* Footer */
+/* ---------------- Footer ---------------- */
 footer {
     text-align: center;
     padding: 20px;
@@ -77,48 +77,44 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ===================== DASHBOARD GRID ===================== */
-#dashboard {
-    width: 90%;
-    max-width: 1200px;
-    margin: 40px auto;
+/* ---------------- Live Timestamp ---------------- */
+#timestamp {
+    font-size: 0.9rem;
+    color: #66ccff;
+    text-align: center;
+    font-family: monospace;
+    margin-bottom: 10px;
 }
 
+/* ---------------- Dashboard Grid ---------------- */
 #grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
+    justify-content: flex-start; /* left-aligned, wraps to next row */
+    margin-top: 20px;
 }
 
-.category-section {
-    flex: 1 1 300px; /* flexible, minimum 300px wide */
-    background: rgba(0,0,0,0.5);
-    padding: 10px;
-    border-radius: 8px;
+/* Individual resource boxes - rounded squares */
+.resource-box {
+    flex: 0 0 120px;   /* width */
+    height: 120px;     /* height same as width for square */
+    background: rgba(0,0,0,0.6);
+    border: 2px solid #66ccff;
+    border-radius: 20px; /* rounded corners */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    cursor: default;
+    transition: transform 0.2s, background 0.2s;
 }
 
-.category-section h3 {
-    margin-top: 0;
-    color: #66ccff;
+/* Hover effect for resource boxes */
+.resource-box:hover {
+    background: rgba(0,0,0,0.85);
+    transform: scale(1.05);
 }
 
-.category-section table {
-    width: 100%;
-    border-collapse: collapse;
-    color: white;
-    font-size: 0.9rem;
-}
-
-.category-section th, .category-section td {
-    padding: 5px;
-    border: 1px solid #888;
-    text-align: left;
-}
-
-.category-section th {
-    background: rgba(255,255,255,0.1);
-}
-
-.category-section tr:nth-child(even) {
-    background: rgba(255,255,255,0.05);
-}

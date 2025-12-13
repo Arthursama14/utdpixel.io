@@ -32,70 +32,30 @@ function createDashboard(data) {
     const grid = document.getElementById("grid");
     grid.innerHTML = ""; // clear any previous content
 
-    // Group by category
-    const categories = {};
-    data.forEach(item => {
-        if (!categories[item.category]) categories[item.category] = [];
-        categories[item.category].push(item);
-    });
-
     const now = new Date();
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
     const dayMap = ["sun_times","mon_times","tue_times","wed_times","thur_times","fri_times","sat_times"];
     const todayIndex = now.getDay(); // 0=Sunday
 
-    for (const cat in categories) {
-        const section = document.createElement("div");
-        section.className = "category-section";
+    data.forEach(res => {
+        const todayValue = res[dayMap[todayIndex]];
+        const range = parseTimeRange(todayValue);
 
-        const title = document.createElement("h3");
-        title.textContent = cat;
-        section.appendChild(title);
+        // Skip if closed or not in current time
+        if (!range) return;
 
-        const table = document.createElement("table");
+        const [start, end] = range;
+        const isOpenNow = start < end
+            ? currentMinutes >= start && currentMinutes <= end
+            : currentMinutes >= start || currentMinutes <= end;
 
-        const headerRow = document.createElement("tr");
-        ["Resource", "Open Now?"].forEach(h => {
-            const th = document.createElement("th");
-            th.textContent = h;
-            headerRow.appendChild(th);
-        });
-        table.appendChild(headerRow);
+        if (!isOpenNow) return;
 
-        // Iterate over resources in this category
-        categories[cat].forEach(res => {
-            const todayValue = res[dayMap[todayIndex]];
-            const range = parseTimeRange(todayValue);
-
-            // Skip if closed or not in time range
-            if (!range) return;
-
-            const [start, end] = range;
-
-            // Handle ranges crossing midnight
-            const isOpenNow = start < end
-                ? currentMinutes >= start && currentMinutes <= end
-                : currentMinutes >= start || currentMinutes <= end;
-
-            if (!isOpenNow) return;
-
-            // Create table row
-            const tr = document.createElement("tr");
-
-            const tdName = document.createElement("td");
-            tdName.textContent = res.resource;
-            tr.appendChild(tdName);
-
-            const tdOpen = document.createElement("td");
-            tdOpen.textContent = "Open";
-            tdOpen.style.color = "limegreen";
-            tdOpen.title = todayValue; // tooltip shows exact hours
-            tr.appendChild(tdOpen);
-
-            table.appendChild(tr);
-        });
-
-        section.appendChild(table);
-        grid.appendChild(section);
-    }
+        // Create square box for resource
+        const box = document.createElement("div");
+        box.className = "resource-box";
+        box.textContent = res.resource;
+        box.title = todayValue; // hover shows hours
+        grid.appendChild(box);
+    });
 }
