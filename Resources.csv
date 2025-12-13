@@ -1,7 +1,7 @@
 ﻿resource,category,Starship,img,Room,lat,lon,mon_times,tue_times,wed_times,thur_times,fri_times,sat_times,sun_times,appoitment,web,outside
-Rec Center West,exercise,no,,,,,7:00 AM-1:00 AM,7:00 AM-1:00 AM,7:00 AM-1:00 AM,7:00 AM-1:00 AM,7:00 AM-10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
+Rec Center West,exercise,no,,,,,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
 Student Counseling Center,self-care,no,,,,,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,closed,closed,yes,https://counseling.utdallas.edu/appointments/,no
-UTD Activity Center,exercise,no,,,,,7:00 AM-1:00 AM,7:00 AM-1:00 AM,7:00 AM-1:00 AM,7:00 AM-1:00 AM,7:00 AM-10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
+UTD Activity Center,exercise,no,,,,,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
 Phase 2 Volley Ball Court,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
 Phase 2 Basketball Court,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
 Phase 1 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
