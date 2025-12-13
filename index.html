@@ -2,21 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTD Pixel Sky</title>
+    <title>UTD Pixel - Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Star canvas -->
     <canvas id="starCanvas"></canvas>
 
-    <!-- UI wrapper with solid black background -->
+    <!-- UI wrapper -->
     <div id="ui">
         <!-- Header -->
         <header>
-            <h1>UTD Pixel Sky</h1>
-            <p>A tiny pixel-art night sky experiment</p>
+            <h1>UTD Pixel</h1>
+            <p>Welcome to UTD Pixel's pixel art dashboard!</p>
         </header>
 
         <!-- Navigation -->
@@ -25,40 +23,47 @@
             <a href="about.html">About</a>
         </nav>
 
-        <!-- Main content -->
+        <!-- Main container -->
         <div class="container">
-            <h2>Welcome</h2>
-            <p>
-                This website displays a pixel-art style animated night sky using HTML5 canvas.
-                Stars fall diagonally with a soft twinkling effect, and the background transitions
-                from gray to black for a subtle atmospheric look.
-            </p>
-        </div>
-
-        <!-- Dashboard container -->
-        <div id="dashboard" class="container">
             <h2>Resource Availability</h2>
+
+            <!-- Dashboard grid -->
             <div id="grid"></div>
+
+            <!-- Live timestamp -->
+            <div id="timestamp"></div>
         </div>
 
         <!-- Footer -->
-		<!-- Live timestamp -->
-		<div id="timestamp" style="text-align:center; color:#66ccff; margin-bottom:10px; font-family: monospace;"></div>
-        
-		<footer>
-            <p>© 2025 UTD Pixel Sky</p>
+        <footer>
+            &copy; 2025 Arthur Braxton | UTD Pixel
         </footer>
     </div>
 
-    <!-- JS Libraries & Scripts -->
+    <!-- Scripts -->
     <!-- PapaParse for CSV parsing -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
     <!-- Star animation -->
     <script src="stars.js"></script>
 
-    <!-- Dashboard grid -->
+    <!-- Dashboard -->
     <script src="dashboard.js"></script>
 
+    <!-- Live timestamp -->
+    <script>
+        function updateTimestamp() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2,'0');
+            const minutes = now.getMinutes().toString().padStart(2,'0');
+            const seconds = now.getSeconds().toString().padStart(2,'0');
+            const day = now.toLocaleDateString(undefined, {weekday:'short'});
+            const date = now.toLocaleDateString();
+            const timeStr = `${day} ${date} ${hours}:${minutes}:${seconds}`;
+            document.getElementById("timestamp").textContent = timeStr;
+        }
+        updateTimestamp();
+        setInterval(updateTimestamp, 1000);
+    </script>
 </body>
 </html>
