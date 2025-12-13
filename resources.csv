@@ -1,17 +1,4 @@
 ﻿resource,category,Starship,img,Room,lat,lon,mon_times,tue_times,wed_times,thur_times,fri_times,sat_times,sun_times,appoitment,web,outside
-Rec Center West,exercise,no,,,,,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
-Student Counseling Center,self-care,no,,,,,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,closed,closed,yes,https://counseling.utdallas.edu/appointments/,no
-UTD Activity Center,exercise,no,,,,,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
-Phase 2 Volley Ball Court,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
-Phase 2 Basketball Court,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
-Phase 1 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
-Phase 2 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
-Phase 3 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
-Gaming Center,socialize,no,,,,,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,12:00 PM - 11:00 PM,12:00 PM - 11:00 PM,,https://esports.utdallas.edu/gaming-center/,no
-Student Union,socialize,no,,,,,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,9:00 AM - 11:00 PM,9:00 AM - 11:00 PM,yes,https://union.utdallas.edu/,no
-Library Study Rooms,academics,no,,,,,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,11:00 AM - 8:00 PM,11:00 AM - 8:00 PM,yes,https://libcal.utdallas.edu/,no
-Career Center,career,no,,,,,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,closed,closed,yes,https://career.utdallas.edu/contact/,no
-Comet Cents,career,no,,,,,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,closed,closed,yes,https://cometcents.utdallas.edu/,no
 Taco Bell,food,yes,https://toppng.com/uploads/preview/taco-bell-new-logo-vector-11573942814qvijjllqow.png,,,,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,no,https://services.utdallas.edu/dining/,no
 Comet Pi,food,no,,,,,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,11:00 AM - 12:00 AM,3:00  PM - 10:00 PM,3:00  PM - 10:00 PM,no,https://services.utdallas.edu/dining/,no
 Starbucks,food,yes,https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg,,,,8:00 AM - 9:00 PM,8:00 AM - 9:00 PM,8:00 AM - 9:00 PM,8:00 AM - 9:00 PM,8:00 AM - 9:00 PM,9:00 AM - 3:00 PM,9:00 AM - 3:00 PM,no,https://services.utdallas.edu/dining/,no
@@ -31,3 +18,16 @@ Fire House Subs,food,yes,https://spng.pngfind.com/pngs/s/404-4045624_firehouse-s
 The Market DHW,food,yes,,,,,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,11:00 AM - 10:00 PM,no,,no
 The Market ESCW,food,no,,,,,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,closed,closed,no,,no
 The Market JSOM,food,no,,,,,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,8:00 AM - 4:00 PM,closed,closed,no,,no
+Library Study Rooms,academics,no,,,,,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,7:00 AM - 10:00 PM ,11:00 AM - 8:00 PM,11:00 AM - 8:00 PM,yes,https://libcal.utdallas.edu/,no
+Rec Center West,exercise,no,,,,,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
+Student Counseling Center,self-care,no,,,,,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,closed,closed,yes,https://counseling.utdallas.edu/appointments/,no
+UTD Activity Center,exercise,no,,,,,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 1:00 AM,7:00 AM - 10:00 PM,8:00 AM - 10PM,12:00 PM - 1:00 AM,no,https://urec.utdallas.edu/,no
+Phase 2 Volley Ball Court,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Phase 2 Basketball Court,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Phase 1 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Phase 2 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Phase 3 Pool,exercise,no,,,,,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,10:00 AM - 10:00 PM,no,,yes
+Gaming Center,socialize,no,,,,,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,10:00 AM - 12:00 AM,12:00 PM - 11:00 PM,12:00 PM - 11:00 PM,,https://esports.utdallas.edu/gaming-center/,no
+Student Union,socialize,no,,,,,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,7:00 AM - 12:00 AM,9:00 AM - 11:00 PM,9:00 AM - 11:00 PM,yes,https://union.utdallas.edu/,no
+Career Center,career,no,,,,,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,8:00 AM - 5:00 PM,closed,closed,yes,https://career.utdallas.edu/contact/,no
+Comet Cents,career,no,,,,,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,12:00 PM - 4:00 PM,closed,closed,yes,https://cometcents.utdallas.edu/,no
