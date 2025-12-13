@@ -88,33 +88,62 @@ footer {
 
 /* ---------------- Dashboard Grid ---------------- */
 #grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: flex-start; /* left-aligned, wraps to next row */
     margin-top: 20px;
 }
 
-/* Individual resource boxes - rounded squares */
+/* Category section */
+.category-section {
+    margin-bottom: 30px;
+}
+
+/* Category title */
+.category-section h3 {
+    color: #66ccff;
+    margin-bottom: 10px;
+}
+
+/* Grid of resource boxes per category */
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Individual resource boxes */
 .resource-box {
-    flex: 0 0 120px;   /* width */
-    height: 120px;     /* height same as width for square */
-    background: rgba(0,0,0,0.6);
-    border: 2px solid #66ccff;
+    flex: 1 0 120px; /* responsive width */
+    height: 120px;   /* height same as width to keep square */
+    background: #ffffff; /* white fill */
+    color: #000000;      /* black text */
     border-radius: 20px; /* rounded corners */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
     font-weight: bold;
     text-align: center;
     cursor: default;
     transition: transform 0.2s, background 0.2s;
 }
 
-/* Hover effect for resource boxes */
+/* Hover effect */
 .resource-box:hover {
-    background: rgba(0,0,0,0.85);
     transform: scale(1.05);
+    background: #e6e6e6; /* slightly darker on hover */
 }
 
+/* ---------------- Responsive adjustments ---------------- */
+@media (max-width: 768px) {
+    .resource-box {
+        flex: 1 0 45%; /* 2 boxes per row on smaller screens */
+        height: auto;
+        aspect-ratio: 1 / 1; /* keep square */
+    }
+}
+
+@media (max-width: 480px) {
+    .resource-box {
+        flex: 1 0 90%; /* 1 box per row on very small screens */
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+}
