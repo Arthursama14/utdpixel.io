@@ -2,130 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UTD Pixel - Home</title>
+    <title>UTD Pixel - Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Star canvas -->
+    <canvas id="starCanvas"></canvas>
 
-<!-- ================= STAR BACKGROUND ================= -->
-<canvas id="starCanvas"></canvas>
+    <!-- UI wrapper -->
+    <div id="ui">
+        <!-- Header -->
+        <header>
+            <h1>UTD Pixel</h1>
+            <p>Interested in exploring Campus? 
+			Welcome to UTD Pixel's pixel art dashboard!
+			</p>
+        </header>
 
-<header>
-    <h1>UTD Pixel</h1>
-    <p>Welcome to UTD Pixel's pixel art website!</p>
-</header>
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+		<!-- ⭐ EXPERIENCE BUILDER EMBED -->
+		<section id="experience">
+			<iframe
+				src="https://experience.arcgis.com/experience/59ac21e33ff74026aaa2b48f847770e0"
+				allowfullscreen
+				loading="lazy">
+			</iframe>
+		</section>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-</nav>
+        <!-- Main container -->
+        <div class="container">
+            <h2>What's Open?:</h2>
 
-<!-- ================= TABLE LAYOUT ================= -->
-<div class="container">
+            <!-- Dashboard grid -->
+            <div id="grid"></div>
 
-    <!-- =============== TOP SECTION =============== -->
-    <table style="width:100%; border-collapse:collapse;">
-        <tr>
-            <!-- LEFT HALF: Picture + School Logo -->
-            <td style="width:50%; border:0;">
-                <table style="width:100%; border-collapse:collapse;">
-                    <tr>
-                        <td class="center no-border">
-                            <!-- Updated image source to local Media.jpeg -->
-                            <img src="Media.jpeg" alt="My Picture" width="200">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="center no-border">
-                            <img src="https://brand.utdallas.edu/files/2024/08/monogram-emblem-border-880-1.png" alt="School Logo" width="150">
-                        </td>
-                    </tr>
-                </table>
-            </td>
+            <!-- Live timestamp -->
+            <div id="timestamp"></div>
+        </div>
 
-            <!-- RIGHT HALF: Name, Program, University Video -->
-            <td style="width:50%; border:0;">
-                <table style="width:100%; border-collapse:collapse;">
-                    <tr>
-                        <td class="center no-border">
-                            <p class="name">Jaelon Braxton</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="center no-border">
-                            <b>Program:</b><br>
-                            Geospatial Information Sciences<br>
-                            <a href="https://www.utdallas.edu/epps/geospatial-science/">Program Link</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="center no-border">
-                            <b>University Video:</b><br>
-                            <iframe width="250" height="150" 
-                                    src="https://www.youtube.com/embed/dlTgBeKj8-Q" 
-                                    title="University Video" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
-                            </iframe>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+        <!-- Footer -->
+        <footer>
+            &copy; 2025 Arthur Braxton | UTD Pixel
+        </footer>
+    </div>
 
-    <br><br>
+    <!-- Scripts -->
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
-    <!-- ========== BOTTOM TABLE: ONE ROW, FOUR COLUMNS ========== -->
-    <table style="width:100%; border-collapse:collapse;">
-        <tr>
-            <!-- ABOUT ME -->
-            <td style="width:25%; border:1px solid #000; vertical-align:top; padding:10px;">
-                <h3>About Me</h3>
-                <p>
-                    I am a GIS student in the Master’s Program in Social Data and Research Analytics at UTD. 
-                    My interests include spatial analysis, geovisualization, and remote sensing.
-                </p>
-            </td>
+    <!-- Star animation -->
+    <script src="stars.js"></script>
 
-            <!-- EDUCATION -->
-            <td style="width:25%; border:1px solid #000; vertical-align:top; padding:10px;">
-                <h3>Education</h3>
-                <ul>
-                    <li>Master's in SDAR – <a href="http://www.utdallas.edu">UT Dallas</a></li>
-                    <li>Master's in Visual Performance Arts</li>
-                    <li>Bachelor's in Art Technology and Emerging Communications</li>
-                </ul>
-            </td>
+    <!-- Dashboard -->
+    <script src="dashboard.js"></script>
 
-            <!-- COURSE WORK -->
-            <td style="width:25%; border:1px solid #000; vertical-align:top; padding:10px;">
-                <h3>Course Work</h3>
-                <ol>
-                    <li>GIS Fundamentals</li>
-                    <li>Remote Sensing</li>
-                    <li>Internet Mapping</li>
-                    <li>Machine Learning</li>
-                </ol>
-            </td>
-
-            <!-- CONTACT INFO -->
-            <td style="width:25%; border:1px solid #000; vertical-align:top; padding:10px;">
-                <h3>Contact Information</h3>
-                <p>
-                    Email: <a href="mailto:jeb160630@utdallas.edu">jeb160630@utdallas.edu</a><br>
-                    Phone: 469-445-6299<br>
-                    Address: Richardson, TX
-                </p>
-            </td>
-        </tr>
-    </table>
-
-</div>
-
-<!-- ================= STAR.JS ================= -->
-<script src="star.js"></script>
-
+    <!-- Live timestamp -->
+    <script>
+        function updateTimestamp() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2,'0');
+            const minutes = now.getMinutes().toString().padStart(2,'0');
+            const seconds = now.getSeconds().toString().padStart(2,'0');
+            const day = now.toLocaleDateString(undefined, {weekday:'short'});
+            const date = now.toLocaleDateString();
+            const timeStr = `${day} ${date} ${hours}:${minutes}:${seconds}`;
+            document.getElementById("timestamp").textContent = timeStr;
+        }
+        updateTimestamp();
+        setInterval(updateTimestamp, 1000);
+    </script>
 </body>
 </html>

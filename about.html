@@ -6,34 +6,125 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Star background canvas -->
     <canvas id="starCanvas"></canvas>
 
+    <!-- Header -->
     <header>
-        <h1>About UTD Pixel</h1>
-        <p>Learn more about the pixel starfield animation.</p>
+        <h1>UTD Pixel</h1>
+        <p>Welcome to UTD Pixel's pixel art website!</p>
     </header>
 
+    <!-- Navigation -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
     </nav>
 
+    <!-- Main Content Container -->
     <div class="container">
-        <h2>About This Project</h2>
-        <p>
-            This website uses a custom starfield animation with a wide spawn zone,
-            twinkling opacity, and a diagonal pixel-art style movement across a 
-            gradient night sky.
-        </p>
-        <p>
-            Everything is rendered on an HTML5 canvas layered behind the UI.
-        </p>
+        <!-- =============== TOP SECTION =============== -->
+        <table style="width:100%; border-collapse: collapse;">
+            <tr>
+                <!-- LEFT HALF (Picture + School Logo stacked) -->
+                <td style="width:50%; border:0;">
+                    <table style="width:100%; border-collapse: collapse;">
+                        <tr>
+                            <td class="center" style="border:0;">
+                                <img src="https://media.licdn.com/dms/image/v2/D5603AQHdoczmveo-QQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1693515093724?e=1765411200&v=beta&t=V2pN7y4fcRd-PI-644HBFEnb4tONmkPhzG1QQW4X8Qo" 
+                                     alt="My Picture" width="200">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center" style="border:0;">
+                                <img src="https://brand.utdallas.edu/files/2024/08/monogram-emblem-border-880-1.png" 
+                                     alt="School Logo" width="150">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+                <!-- RIGHT HALF (Name, Program, University Video stacked) -->
+                <td style="width:50%; border:0;">
+                    <table style="width:100%; border-collapse: collapse;">
+                        <tr>
+                            <td class="center" style="border:0;">
+                                <p class="name">Jaelon Braxton</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center" style="border:0;">
+                                <b>Program:</b><br>
+                                Geospatial Information Sciences<br>
+                                <a href="https://www.utdallas.edu/epps/geospatial-science/">Program Link</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center" style="border:0;">
+                                <b>University Video:</b><br>
+                                <iframe width="250" height="150" 
+                                        src="https://www.youtube.com/embed/dlTgBeKj8-Q" 
+                                        title="University Video" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <!-- ========== BOTTOM TABLE: ONE ROW, FOUR COLUMNS ========== -->
+        <table style="width:100%; border-collapse: collapse;">
+            <tr>
+                <!-- ABOUT ME -->
+                <td style="width:25%; border:1px solid #000; padding:10px;">
+                    <h3>About Me</h3>
+                    <p>
+                        I am a GIS student in the Master’s Program in Social Data and Research Analytics at UTD. 
+                        My interests include spatial analysis, geovisualization, and remote sensing.
+                    </p>
+                </td>
+
+                <!-- EDUCATION -->
+                <td style="width:25%; border:1px solid #000; padding:10px;">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>Master's in SDAR – <a href="http://www.utdallas.edu">UT Dallas</a></li>
+                        <li>Master's in Visual Performance Arts</li>
+                        <li>Bachelor's in Art Technology and Emerging Communications</li>
+                    </ul>
+                </td>
+
+                <!-- COURSE WORK -->
+                <td style="width:25%; border:1px solid #000; padding:10px;">
+                    <h3>Course Work</h3>
+                    <ol>
+                        <li>GIS Fundamentals</li>
+                        <li>Remote Sensing</li>
+                        <li>Internet Mapping</li>
+                        <li>Machine Learning</li>
+                    </ol>
+                </td>
+
+                <!-- CONTACT INFO -->
+                <td style="width:25%; border:1px solid #000; padding:10px;">
+                    <h3>Contact Information</h3>
+                    <p>
+                        Email: <a href="mailto:jeb160630@utdallas.edu">jeb160630@utdallas.edu</a><br>
+                        Phone: 469-445-6299<br>
+                        Address: Richardson, TX
+                    </p>
+                </td>
+            </tr>
+        </table>
     </div>
 
-    <footer>
-        &copy; 2025 Arthur Braxton | UTD Pixel
-    </footer>
-
-    <script src="stars.js"></script>
+    <!-- Star animation script -->
+    <script src="star.js"></script>
 </body>
 </html>
