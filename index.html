@@ -2,36 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UTD Pixel - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTD Pixel Sky</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas id="starCanvas"></canvas>
 
-<div id="ui">
-    <header>
-        <h1>UTD Pixel Sky</h1>
-        <p>A tiny pixel-art night sky experiment</p>
-    </header>
+    <!-- Star canvas -->
+    <canvas id="starCanvas"></canvas>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-    </nav>
+    <!-- UI wrapper with solid black background -->
+    <div id="ui">
+        <!-- Header -->
+        <header>
+            <h1>UTD Pixel Sky</h1>
+            <p>A tiny pixel-art night sky experiment</p>
+        </header>
 
-    <div class="container">
-        <h2>Welcome</h2>
-        <p>…</p>
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <!-- Main content -->
+        <div class="container">
+            <h2>Welcome</h2>
+            <p>
+                This website displays a pixel-art style animated night sky using HTML5 canvas.
+                Stars fall diagonally with a soft twinkling effect, and the background transitions
+                from gray to black for a subtle atmospheric look.
+            </p>
+        </div>
+
+        <!-- Dashboard container -->
+        <div id="dashboard" class="container">
+            <h2>Resource Availability</h2>
+            <div id="grid"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 UTD Pixel Sky</p>
+        </footer>
     </div>
 
-    <footer>
-        © 2025 UTD Pixel Sky
-    </footer>
-</div>
+    <!-- JS Libraries & Scripts -->
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
-<script src="stars.js"></script>
+    <!-- Star animation -->
+    <script src="stars.js"></script>
+
+    <!-- Dashboard grid -->
+    <script src="dashboard.js"></script>
+
 </body>
 </html>
-
-
-
