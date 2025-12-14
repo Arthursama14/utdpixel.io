@@ -29,7 +29,7 @@ html, body {
 #ui {
     position: relative;
     z-index: 1;
-    background: rgba(0,0,0,1); /* solid black behind UI */
+    background: transparent; /* solid black behind UI */
 }
 
 /* ---------------- Header ---------------- */
