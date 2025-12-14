@@ -1,130 +1,179 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>UTD Pixel - About</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid #000;
+            vertical-align: top;
+            padding: 10px;
+        }
+        .no-border {
+            border: 0;
+        }
+        .name {
+            font-family: "Courier New", monospace;
+            font-size: 28px;
+            font-weight: bold;
+            font-style: italic;
+            color: green;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+
     <!-- Star background canvas -->
-    <canvas id="starCanvas"></canvas>
+    <canvas id="starCanvas" width="150" height="935"></canvas>
 
-    <!-- Header -->
-    <header>
-        <h1>UTD Pixel</h1>
-        <p>Welcome to UTD Pixel's pixel art website!</p>
-    </header>
+    <!-- UI wrapper -->
+    <div id="ui">
 
-    <!-- Navigation -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-    </nav>
+        <!-- Header -->
+        <header>
+            <h1>UTD Pixel</h1>
+            <p>Welcome to UTD Pixel's pixel art website!</p>
+        </header>
 
-    <!-- Main Content Container -->
-    <div class="container">
-        <!-- =============== TOP SECTION =============== -->
-        <table style="width:100%; border-collapse: collapse;">
-            <tr>
-                <!-- LEFT HALF (Picture + School Logo stacked) -->
-                <td style="width:50%; border:0;">
-                    <table style="width:100%; border-collapse: collapse;">
-                        <tr>
-                            <td class="center" style="border:0;">
-                                <img src="Media.jpg" 
-                                     alt="My Picture" width="200">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="center" style="border:0;">
-                                <img src="https://brand.utdallas.edu/files/2024/08/monogram-emblem-border-880-1.png" 
-                                     alt="School Logo" width="150">
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
 
-                <!-- RIGHT HALF (Name, Program, University Video stacked) -->
-                <td style="width:50%; border:0;">
-                    <table style="width:100%; border-collapse: collapse;">
-                        <tr>
-                            <td class="center" style="border:0;">
-                                <p class="name">Jaelon Braxton</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="center" style="border:0;">
-                                <b>Program:</b><br>
-                                Geospatial Information Sciences<br>
-                                <a href="https://www.utdallas.edu/epps/geospatial-science/">Program Link</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="center" style="border:0;">
-                                <b>University Video:</b><br>
-                                <iframe width="250" height="150" 
-                                        src="https://www.youtube.com/embed/dlTgBeKj8-Q" 
-                                        title="University Video" 
-                                        frameborder="0" 
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                        allowfullscreen>
-                                </iframe>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+        <!-- Main Content Container -->
+        <div class="container">
 
-        <br><br>
+            <!-- =============== TOP SECTION =============== -->
+            <table style="width:100%; border-collapse: collapse;">
+                <tr>
+                    <!-- LEFT HALF -->
+                    <td style="width:50%; border:0;">
+                        <table style="width:100%; border-collapse: collapse;">
+                            <tr>
+                                <td class="center" style="border:0;">
+									<p class="name">Jaelon Braxton</p>
+                                    <img src="Media.jpg" alt="My Picture" style="width: 100%; height: auto;">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
 
-        <!-- ========== BOTTOM TABLE: ONE ROW, FOUR COLUMNS ========== -->
-        <table style="width:100%; border-collapse: collapse;">
-            <tr>
-                <!-- ABOUT ME -->
-                <td style="width:25%; border:1px solid #000; padding:10px;">
-                    <h3>About Me</h3>
-                    <p>
-                        I am a GIS student in the Master’s Program in Social Data and Research Analytics at UTD. 
-                        My interests include spatial analysis, geovisualization, and remote sensing.
-                    </p>
-                </td>
+                    <!-- RIGHT HALF -->
+                    <td style="width:50%; border:0;">
+                        <table style="width:100%; border-collapse: collapse;">
+                            <tr>
+                                <td class="center" style="border:0;">
+                                    <p class="name">Introduction</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center" style="border:0;">
+									<b>UTD Pixel is a web based application, designed by Jaelon, aimed quickly finding resources and quick web based GIS analysis. 
+									Watch the video below to understand its many functions.
+									
+									Jaelon is a SDAR seeking certification in GIS.</b><br>
+                                    <b>Program:</b><br>
+                                    Geospatial Information Sciences<br>
+                                    <a href="https://www.utdallas.edu/epps/geospatial-science/">Program Link</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center" style="border:0;">
+                                    <b>How to use this Web Based System:</b><br>
+                                    <video width="250" height="150" controls>
+                                        <source src="video/university_video.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
 
-                <!-- EDUCATION -->
-                <td style="width:25%; border:1px solid #000; padding:10px;">
-                    <h3>Education</h3>
-                    <ul>
-                        <li>Master's in SDAR – <a href="http://www.utdallas.edu">UT Dallas</a></li>
-                        <li>Master's in Visual Performance Arts</li>
-                        <li>Bachelor's in Art Technology and Emerging Communications</li>
-                    </ul>
-                </td>
+            <br><br>
 
-                <!-- COURSE WORK -->
-                <td style="width:25%; border:1px solid #000; padding:10px;">
-                    <h3>Course Work</h3>
-                    <ol>
-                        <li>GIS Fundamentals</li>
-                        <li>Remote Sensing</li>
-                        <li>Internet Mapping</li>
-                        <li>Machine Learning</li>
-                    </ol>
-                </td>
+            <!-- ========== BOTTOM TABLE ========== -->
+            <table style="width:100%; border-collapse: collapse;">
+                <tr>
+                    <!-- ABOUT ME -->
+                    <td style="width:25%; border:1px solid #000; padding:10px;">
+                        <h3>About Me</h3>
+                        <p>
+                            I am a GIS student in the Master’s Program in Social Data and Research Analytics at UTD. 
+                            My interests include spatial analysis, geovisualization, and remote sensing.
+                        </p>
+                    </td>
 
-                <!-- CONTACT INFO -->
-                <td style="width:25%; border:1px solid #000; padding:10px;">
-                    <h3>Contact Information</h3>
-                    <p>
-                        Email: <a href="mailto:jeb160630@utdallas.edu">jeb160630@utdallas.edu</a><br>
-                        Phone: 469-445-6299<br>
-                        Address: Richardson, TX
-                    </p>
-                </td>
-            </tr>
-        </table>
+                    <!-- EDUCATION -->
+                    <td style="width:25%; border:1px solid #000; padding:10px;">
+                        <h3>Education</h3>
+                        <ul>
+                            <li>Master's in SDAR – <a href="http://www.utdallas.edu">UT Dallas</a></li>
+                            <li>Master's in Visual Performance Arts</li>
+                            <li>Bachelor's in Art Technology and Emerging Communications</li>
+                        </ul>
+                    </td>
+
+                    <!-- COURSE WORK -->
+                    <td style="width:25%; border:1px solid #000; padding:10px;">
+                        <h3>Course Work</h3>
+                        <ol>
+                            <li>GIS Fundamentals</li>
+                            <li>Remote Sensing</li>
+                            <li>Internet Mapping</li>
+                            <li>Machine Learning</li>
+                        </ol>
+                    </td>
+
+                    <!-- CONTACT INFO -->
+                    <td style="width:25%; border:1px solid #000; padding:10px;">
+                        <h3>Contact Information</h3>
+                        <p>
+                            Email: <a href="mailto:jeb160630@utdallas.edu">jeb160630@utdallas.edu</a><br>
+                            Phone: 469-445-6299<br>
+                            Address: Richardson, TX
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            © 2025 Arthur Braxton | UTD Pixel
+        </footer>
+
     </div>
 
-    <!-- Star animation script -->
-    <script src="star.js"></script>
+    <!-- Star animation -->
+    <script src="stars.js"></script>
+
+    <!-- Script to make all table text white and bottom table top-right aligned -->
+    <script>
+        // Make all table text white
+        const tables = document.querySelectorAll('table');
+        tables.forEach(table => {
+            table.style.color = 'white';
+        });
+
+        // Align bottom table cells top-right
+        const bottomTable = document.querySelectorAll('table')[1]; // second table is bottom table
+        bottomTable.querySelectorAll('td').forEach(td => {
+            td.style.textAlign = 'right';
+            td.style.verticalAlign = 'top';
+        });
+    </script>
+
 </body>
 </html>
