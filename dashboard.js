@@ -2,9 +2,8 @@
 Papa.parse("resources.csv", {
     download: true,
     header: true,
-    complete: function(results) {
-        const data = results.data;
-        createDashboard(data);
+    complete: function (results) {
+        createDashboard(results.data);
     }
 });
 
@@ -19,8 +18,10 @@ function parseTimeRange(rangeStr) {
         t = t.trim();
         const [time, meridiem] = t.split(" ");
         let [hours, minutes] = time.split(":").map(Number);
+
         if (meridiem.toLowerCase() === "pm" && hours !== 12) hours += 12;
         if (meridiem.toLowerCase() === "am" && hours === 12) hours = 0;
+
         return hours * 60 + minutes;
     };
 
@@ -30,44 +31,67 @@ function parseTimeRange(rangeStr) {
 // ---------------------- Create Dashboard ----------------------
 function createDashboard(data) {
     const grid = document.getElementById("grid");
-    grid.innerHTML = ""; // clear previous content
+    grid.innerHTML = "";
 
     const now = new Date();
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
-    const dayMap = ["sun_times","mon_times","tue_times","wed_times","thur_times","fri_times","sat_times"];
+    const dayMap = [
+        "sun_times",
+        "mon_times",
+        "tue_times",
+        "wed_times",
+        "thur_times",
+        "fri_times",
+        "sat_times"
+    ];
     const todayIndex = now.getDay();
 
-    // Info panel container
+    // ---------------- Dashboard Wrapper ----------------
+    const dashboard = document.createElement("div");
+    dashboard.id = "dashboard";
+    grid.parentElement.insertBefore(dashboard, grid);
+    dashboard.appendChild(grid);
+
+    // ---------------- Info Panel ----------------
     const infoPanel = document.createElement("div");
     infoPanel.id = "infoPanel";
-    infoPanel.style.padding = "15px";
-    infoPanel.style.marginTop = "20px";
-    infoPanel.style.background = "rgba(0,0,0,0.5)";
-    infoPanel.style.color = "#ffffff";
-    infoPanel.style.borderRadius = "10px";
-    infoPanel.innerHTML = "<em>Click a resource to see details...</em>";
-    grid.parentElement.appendChild(infoPanel);
+    infoPanel.classList.add("collapsed");
+    infoPanel.innerHTML = `
+        <button id="infoToggle">☰</button>
+        <div id="infoContent">
+            <em>Click a resource to see details...</em>
+        </div>
+    `;
+    dashboard.appendChild(infoPanel);
 
-    // Group resources by category
+    const infoContent = infoPanel.querySelector("#infoContent");
+    const toggleBtn = infoPanel.querySelector("#infoToggle");
+
+    toggleBtn.addEventListener("click", () => {
+        infoPanel.classList.toggle("collapsed");
+    });
+
+    // ---------------- Group by Category ----------------
     const categories = {};
     data.forEach(item => {
         if (!categories[item.category]) categories[item.category] = [];
         categories[item.category].push(item);
     });
 
+    // ---------------- Build UI ----------------
     for (const cat in categories) {
-        // Filter only open resources
         const openResources = categories[cat].filter(res => {
             const todayValue = res[dayMap[todayIndex]];
             const range = parseTimeRange(todayValue);
             if (!range) return false;
+
             const [start, end] = range;
             return start < end
                 ? currentMinutes >= start && currentMinutes <= end
                 : currentMinutes >= start || currentMinutes <= end;
         });
 
-        if (openResources.length === 0) continue; // skip empty categories
+        if (!openResources.length) continue;
 
         const section = document.createElement("div");
         section.className = "category-section";
@@ -79,7 +103,7 @@ function createDashboard(data) {
         const sectionGrid = document.createElement("div");
         sectionGrid.className = "category-grid";
 
-        // Resource boxes
+        // ---------------- Resource Boxes ----------------
         openResources.forEach(res => {
             const box = document.createElement("div");
             box.className = "resource-box";
@@ -94,62 +118,59 @@ function createDashboard(data) {
                 box.textContent = res.resource;
             }
 
-            // Click event: show info panel
             let countdownInterval = null;
 
-box.addEventListener("click", () => {
-    if (countdownInterval) clearInterval(countdownInterval);
+            box.addEventListener("click", () => {
+                infoPanel.classList.remove("collapsed");
+                if (countdownInterval) clearInterval(countdownInterval);
 
-    function updatePanel() {
-        const todayValue = res[dayMap[todayIndex]];
-        let countdownHTML = "";
+                function updatePanel() {
+                    const todayValue = res[dayMap[todayIndex]];
+                    let countdownHTML = "";
 
-        const range = parseTimeRange(todayValue);
-        if (range) {
-            let [start, end] = range;
+                    const range = parseTimeRange(todayValue);
+                    if (range) {
+                        let [start, end] = range;
+                        const now = new Date();
+                        const nowMins = now.getHours() * 60 + now.getMinutes();
 
-            const now = new Date();
-            let nowMins = now.getHours() * 60 + now.getMinutes();
+                        let minsLeft;
+                        if (start < end) {
+                            minsLeft = end - nowMins;
+                        } else {
+                            minsLeft = nowMins <= end
+                                ? end - nowMins
+                                : (1440 - nowMins) + end;
+                        }
 
-            let minsLeft;
-            if (start < end) {
-                minsLeft = end - nowMins;
-            } else {
-                minsLeft = nowMins <= end
-                    ? end - nowMins
-                    : (24 * 60 - nowMins) + end;
-            }
+                        if (minsLeft > 0 && minsLeft <= 90) {
+                            const h = Math.floor(minsLeft / 60);
+                            const m = minsLeft % 60;
+                            const urgent = minsLeft <= 30 ? "urgent" : "";
 
-            if (minsLeft > 0 && minsLeft <= 90) {
-                const hours = Math.floor(minsLeft / 60);
-                const minutes = minsLeft % 60;
-                const urgentClass = minsLeft <= 30 ? "urgent" : "";
+                            countdownHTML = `
+                                <p class="countdown ${urgent}">
+                                    ⏳ Closing in ${h}h ${m}m
+                                </p>
+                            `;
+                        }
+                    } else {
+                        countdownHTML = `<p><strong>Status:</strong> Closed today</p>`;
+                    }
 
-                countdownHTML = `
-                    <p class="countdown ${urgentClass}">
-                        ⏳ Closing in ${hours}h ${minutes}m
-                    </p>
-                `;
-            }
-        } else {
-            countdownHTML = `<p><strong>Status:</strong> Closed for today</p>`;
-        }
+                    infoContent.innerHTML = `
+                        <h3>${res.resource}</h3>
+                        <p><strong>Category:</strong> ${res.category}</p>
+                        ${res.img ? `<img src="${res.img}" alt="${res.resource}">` : ""}
+                        ${res.web ? `<p><a href="${res.web}" target="_blank">Visit Website</a></p>` : ""}
+                        <p><strong>Today's Hours:</strong> ${todayValue}</p>
+                        ${countdownHTML}
+                    `;
+                }
 
-        infoPanel.innerHTML = `
-            <h3>${res.resource}</h3>
-            <p><strong>Category:</strong> ${res.category}</p>
-            ${res.img ? `<img src="${res.img}" alt="${res.resource}" style="max-width:200px; margin:10px 0;">` : ""}
-            ${res.web ? `<p><a href="${res.web}" target="_blank">Visit Website</a></p>` : ""}
-            <p><strong>Today's Hours:</strong> ${todayValue}</p>
-            ${countdownHTML}
-        `;
-    }
-
-    updatePanel();
-    countdownInterval = setInterval(updatePanel, 60000); // refresh every minute
-});
-
-
+                updatePanel();
+                countdownInterval = setInterval(updatePanel, 60000);
+            });
 
             sectionGrid.appendChild(box);
         });
@@ -158,3 +179,4 @@ box.addEventListener("click", () => {
         grid.appendChild(section);
     }
 }
+
