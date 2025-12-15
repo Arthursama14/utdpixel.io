@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UTD Pixel - Prostaff</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Star background canvas -->
+    <canvas id="starCanvas"></canvas>
+
+    <!-- UI wrapper -->
+    <div id="ui">
+
+        <!-- Header -->
+        <header>
+            <h1>UTD Pixel</h1>
+            <p>Prostaff & Contributors</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="prostaff.html">Prostaff</a>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container">
+
+            <h2>Prostaff Team</h2>
+
+            <p style="margin-bottom: 20px;">
+                Meet the creators, contributors, and staff behind the UTD Pixel project.
+            </p>
+
+            <!-- Prostaff Grid -->
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            ">
+
+                <!-- Staff Card -->
+                <div style="background: rgba(255,255,255,0.15); padding:15px; border-radius:12px;">
+                    <h3>Jaelon Braxton</h3>
+                    <p><b>Role:</b> Project Lead</p>
+                    <p><b>Focus:</b> GIS, Visualization, Web Mapping</p>
+                </div>
+
+                <!-- Staff Card -->
+                <div style="background: rgba(255,255,255,0.15); padding:15px; border-radius:12px;">
+                    <h3>Contributor Name</h3>
+                    <p><b>Role:</b> Developer</p>
+                    <p><b>Focus:</b> Frontend / Data</p>
+                </div>
+
+                <!-- Add more cards as needed -->
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2025 Arthur Braxton | UTD Pixel
+        </footer>
+
+    </div>
+
+    <!-- Star animation -->
+    <script src="star.js"></script>
+</body>
+</html>
