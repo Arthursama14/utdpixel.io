@@ -4,49 +4,128 @@
     <meta charset="UTF-8">
     <title>UTD Pixel - Prostaff</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Login overlay */
+        #login-box {
+            max-width: 400px;
+            margin: 120px auto;
+            padding: 25px;
+            text-align: center;
+            background: rgba(0,0,0,0.65);
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        #login-box input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+        }
+
+        #login-box button {
+            padding: 10px 20px;
+            background: #66ccff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #login-box button:hover {
+            background: #4bb3e6;
+        }
+
+        #error {
+            color: #ff4d4d;
+            margin-top: 10px;
+        }
+
+        /* Hide protected content by default */
+        #protected-content {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- Star background canvas -->
-    <canvas id="starCanvas"></canvas>
+<!-- Star background -->
+<canvas id="starCanvas"></canvas>
 
-    <!-- UI wrapper -->
-    <div id="ui">
+<!-- UI wrapper -->
+<div id="ui">
 
-        <!-- Header -->
-        <header>
-            <h1>UTD Pixel</h1>
-            <p>Prostaff & Contributors</p>
-        </header>
+    <!-- Header -->
+    <header>
+        <h1>UTD Pixel</h1>
+        <p>Prostaff Access</p>
+    </header>
 
-        <!-- Navigation -->
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="prostaff.html">Prostaff</a>
-        </nav>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="prostaff.html">Prostaff</a>
+    </nav>
 
-        <!-- Main Content -->
+    <!-- 🔐 LOGIN BOX -->
+    <div id="login-box">
+        <h2>Prostaff Login</h2>
+        <input type="password" id="password" placeholder="Enter password">
+        <br>
+        <button onclick="checkLogin()">Login</button>
+        <div id="error"></div>
+    </div>
 
-</p>
+    <!-- 🔓 PROTECTED CONTENT -->
+    <div id="protected-content" class="container">
 
-<!-- 🌐 ArcGIS Webframe -->
-<section id="experience">
-    <iframe
-        src="https://arcg.is/0DzrCW"
-        allowfullscreen
-        loading="lazy">
-    </iframe>
-</section>
+        <h2>Prostaff Team</h2>
+        <p>Authorized personnel only.</p>
 
-        <!-- Footer -->
-        <footer>
-            &copy; 2025 Arthur Braxton | UTD Pixel
-        </footer>
+        <!-- ArcGIS Webframe -->
+        <section id="experience">
+            <iframe
+                src="https://arcg.is/0DzrCW"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </section>
 
     </div>
 
-    <!-- Star animation -->
-    <script src="star.js"></script>
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Arthur Braxton | UTD Pixel
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="stars.js"></script>
+
+<script>
+    function checkLogin() {
+        const password = document.getElementById("password").value.trim();
+        const errorDiv = document.getElementById("error");
+
+        if (!password) {
+            errorDiv.textContent = "Please enter the password.";
+            return;
+        }
+
+        if (password === "password") {
+            document.getElementById("login-box").style.display = "none";
+            document.getElementById("protected-content").style.display = "block";
+        } else {
+            errorDiv.textContent = "Incorrect password.";
+        }
+    }
+</script>
+
 </body>
 </html>
